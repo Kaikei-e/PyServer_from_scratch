@@ -20,5 +20,12 @@ while True:
     clientConnection.sendall(response.encode())
     clientConnection.close()
 
+    fileInput = open('index.html')
+    content = fileInput.read()
+    fileInput.close()
+
+    response = 'HTTP/1.0 200 OK\n\n' + content
+    clientConnection.sendall(response.encode())
+
 
 serverSocket.close()
